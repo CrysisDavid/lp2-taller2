@@ -1,9 +1,16 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect # type: ignore
 import sqlite3
 from pprint import pprint
 
 # cargamos todos los datos
-
+conexion = sqlite3.connect("web2.sqlite3")
+conexion.row_factory = sqlite3.Row
+cursor = conexion.cursor()
+cursor.execute("SELECT * FROM products;")
+productos = [dict(p) for p in cursor.fetchall()]
+pprint(productos)
+cursor.close()
+conexion.close()
 
 # aplicación
 app = Flask(__name__)
