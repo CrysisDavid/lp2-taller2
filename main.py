@@ -8,7 +8,6 @@ conexion.row_factory = sqlite3.Row
 cursor = conexion.cursor()
 cursor.execute("SELECT * FROM products;")
 productos = [dict(p) for p in cursor.fetchall()]
-pprint(productos)
 cursor.close()
 conexion.close()
 
@@ -18,7 +17,7 @@ app = Flask(__name__)
 # rutas
 @app.route('/')
 def ruta_raiz():
-  pass
+  return render_template('index.html', productos = productos)
 
 @app.route('/producto/<int:pid>')
 def ruta_producto(pid):
