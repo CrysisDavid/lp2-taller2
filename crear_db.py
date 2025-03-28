@@ -2,12 +2,23 @@
 import sqlite3
 
 # establecer la conexion
+conexion = sqlite3.connect("web2.sqlite3")
+cursor = conexion.cursor()
 
 # eliminar la tabla
-
+cursor.execute("""
+        DROP TABLE IF EXISTS products 
+""")
 # crear la tabla
 cursor.execute("""
-
+        CREATE TABLE IF NOT EXISTS products (
+          id INTEGER PRIMARY KEY,
+          categoria TEXT NOT NULL,
+          marca TEXT NOT NULL,
+          nombre TEXT NOT NULL,
+          descripcion TEXT NOT NULL,
+          precio INT NOT NULL
+        );
 """)
 
 # insertar los datos iniciales
@@ -24,9 +35,9 @@ datos = [
 ]
 
 cursor.executemany("""
+        INSERT INTO products VALUES (?, ?, ?, ?, ?, ?);
 
 """, datos)
-
 # grabar
 conexion.commit()
 conexion.close()
