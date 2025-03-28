@@ -1,8 +1,17 @@
-{% extends 'base.html' %}
-
-{% block titulo %}Tienda Virtual{% endblock %}
-
-{% block contenido %}
-
-
+{% extends 'base.html' %} {% block titulo %}Tienda Virtual{% endblock %} {%
+block contenido %}
+<table>
+  <tr>
+    <th>marca</th>
+    <th>nombre</th>
+    <th>precio</th>
+  </tr>
+  {% for p in productos %}
+  <tr>
+    <td>{{ p.marca }}</td>
+    <td>{{ p.nombre }}</td>
+    <td>{{ p.precio }}</td>
+  </tr>
+  {% endfor %}
+</table>
 {% endblock %}
