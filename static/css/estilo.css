@@ -1,15 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400&display=swap");
 
 html {
-
+  font-family: "Oxygen";
+  background-color: #2eb29c;
 }
-
-table {
-
+a {
+  color: black;
+  text-decoration: none;
 }
-
+a:hover {
+  color: #6dace7;
+}
+.products {
+  background-color: #cdfcf4;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 4px 8px;
+}
+.producto-info {
+  padding: 20px;
+}
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Inicio {
+  width: 60px;
+  height: 25px;
+  background-color: rgb(174, 250, 250);
+  border-radius: 4px;
+}
+.Inicio:hover {
+  animation: pulse 0.5s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
